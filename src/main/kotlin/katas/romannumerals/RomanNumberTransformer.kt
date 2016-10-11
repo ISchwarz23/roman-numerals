@@ -28,9 +28,9 @@ class RomanNumberTransformer {
      */
     fun transformToRoman(number: Int): String {
         if (number <= 0) {
-            throw IndexOutOfBoundsException("number to transform has to be bigger than 0");
+            throw IndexOutOfBoundsException("number to transform has to be bigger than 0")
         }
-        return transformToRomanRecursive(number);
+        return transformToRomanRecursive(number)
     }
 
     private fun transformToRomanRecursive(numberToTransform: Int): String {
