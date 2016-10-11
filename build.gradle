@@ -1,9 +1,29 @@
-apply plugin: 'java'
+apply plugin: 'kotlin'
 
-repositories {
-	mavenCentral()
+allprojects {
+    repositories {
+        maven {
+            url "http://repository.jetbrains.com/all"
+        }
+    }
 }
 
 dependencies {
-	testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile 'org.jetbrains.spek:spek:1.0.18'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+buildscript {
+    ext.kotlin_version = '1.0.4'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+repositories {
+    mavenCentral()
+}
+sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
 }
